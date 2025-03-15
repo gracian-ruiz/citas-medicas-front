@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Appointment } from '../models/appointment.model'; // Asegúrate de que la ruta del modelo sea correcta
 import { AppointmentEdit } from '../models/appointment-edit-model';
+import { environment } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  private apiUrl = 'http://127.0.0.1:8001/api/appointments';  // Ajusta la URL a la de tu API
+  private apiBaseUrl = environment.apiBaseUrl; 
+  private apiUrl = this.apiBaseUrl + 'appointments';  // Concatenación con '+'
+
+  /* private apiUrl = 'http://127.0.0.1:8001/api/appointments'; */ 
 
   constructor(private http: HttpClient) {}
 
