@@ -1,0 +1,108 @@
+/* Contenedor principal */
+.client-list {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.client-list h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilo para el campo de búsqueda */
+mat-form-field {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+mat-form-field input {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+th.mat-header-cell, td.mat-cell {
+  padding: 10px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+th.mat-header-cell {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+mat-header-row {
+  background-color: #f1f1f1;
+}
+
+/* Estilo para las celdas */
+td.mat-cell {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Estilo de las acciones (botón de edición) */
+button.mat-icon-button {
+  background-color: #2196F3;
+  color: white;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+button.mat-icon-button:hover {
+  background-color: #1976D2;
+}
+
+mat-icon {
+  font-size: 1.2rem;
+}
+
+/* Estilo para el paginador */
+mat-paginator {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+mat-paginator .mat-paginator-range-actions {
+  margin-right: 10px;
+}
+
+mat-paginator .mat-paginator-page-size {
+  margin-left: 10px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .client-list {
+    padding: 15px;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  button.mat-icon-button {
+    padding: 4px;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

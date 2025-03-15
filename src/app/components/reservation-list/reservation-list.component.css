@@ -1,0 +1,15 @@
+.reservation-list {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  

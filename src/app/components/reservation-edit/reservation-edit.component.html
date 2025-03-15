@@ -1,0 +1,50 @@
+<h2>Editar Reserva</h2>
+
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+<p *ngIf="successMessage" style="color: green; font-weight: bold;">
+  {{ successMessage }}
+</p>
+
+<form [formGroup]="reservationForm" (ngSubmit)="updateReservation()">
+  <label>Cliente ID</label>
+  <input formControlName="user_id" type="text">
+  <p *ngIf="f['user_id'].invalid && f['user_id'].touched">Campo requerido</p>
+
+  
+
+  <label>Fecha</label>
+  <input formControlName="fecha" type="date" />
+  <p *ngIf="f['fecha'].invalid && f['fecha'].touched">Campo requerido</p>
+
+  <label>Número de Reconocimientos</label>
+  <input formControlName="num_reconocimientos" type="number" />
+  <p *ngIf="f['num_reconocimientos'].invalid && f['num_reconocimientos'].touched">
+    Debe ser un número mayor o igual a 1
+  </p>
+
+  <label>Empleados Asignados</label>
+<input formControlName="empleados_asignados" type="number">
+<p *ngIf="f['empleados_asignados'].invalid && f['empleados_asignados'].touched">
+  Debe ser un número mayor o igual a 1
+</p>
+
+
+<label>Hora de Inicio</label>
+<input formControlName="hora_inicio" type="time" />
+<p *ngIf="f['hora_inicio'].invalid && f['hora_inicio'].touched">Campo requerido</p>
+
+  <label>Estado</label>
+  <select formControlName="estado">
+    <option value="pendiente">Pendiente</option>
+    <option value="confirmada">Confirmada</option>
+    <option value="realizada">Realizada</option>
+  </select>
+  <p *ngIf="f['estado'].invalid && f['estado'].touched">Campo requerido</p>
+
+  <label for="empleados_solicitados">Empleados solicitados:</label>
+<input type="number" id="empleados_solicitados" formControlName="empleados_solicitados">
+
+
+  <button type="submit" [disabled]="reservationForm.invalid">Actualizar</button>
+  <div *ngIf="reservationForm.invalid">Formulario inválido</div>
+</form>

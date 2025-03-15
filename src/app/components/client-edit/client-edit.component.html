@@ -1,0 +1,77 @@
+<h2>Editar Cliente</h2>
+
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+<p *ngIf="successMessage" style="color: green; font-weight: bold;">
+  {{ successMessage }}
+</p>
+
+<form [formGroup]="clientForm" (ngSubmit)="updateClient()">
+  <label>Nombre</label>
+  <input formControlName="name" type="text" />
+  <p *ngIf="f['name']?.invalid && f['name']?.touched">Campo requerido</p>
+
+  <label>Email</label>
+  <input formControlName="email" type="email" />
+  <p *ngIf="f['email']?.invalid && f['email']?.touched">Debe ser un email
+    válido</p>
+
+  <label>Estado del Contrato</label>
+  <select formControlName="estado_contrato">
+    <option value="activo">Activo</option>
+    <option value="inactivo">Inactivo</option>
+  </select>
+  <p
+    *ngIf="f['estado_contrato']?.invalid && f['estado_contrato']?.touched">Campo
+    requerido</p>
+
+  <label>Código</label>
+  <input formControlName="codigo" type="text" />
+  <p *ngIf="f['codigo']?.invalid && f['codigo']?.touched">Campo requerido</p>
+
+  <label>Razón Social</label>
+  <input formControlName="razon_social" type="text" />
+  <p *ngIf="f['razon_social']?.invalid && f['razon_social']?.touched">Campo
+    requerido</p>
+
+  <label>CIF</label>
+  <input formControlName="cif" type="text" />
+  <p *ngIf="f['cif']?.invalid && f['cif']?.touched">Campo requerido</p>
+
+  <label>Dirección</label>
+  <input formControlName="direccion" type="text" />
+  <p *ngIf="f['direccion']?.invalid && f['direccion']?.touched">Campo
+    requerido</p>
+
+  <label>Municipio</label>
+  <input formControlName="municipio" type="text" />
+  <p *ngIf="f['municipio']?.invalid && f['municipio']?.touched">Campo
+    requerido</p>
+
+  <label>Provincia</label>
+  <input formControlName="provincia" type="text" />
+  <p *ngIf="f['provincia']?.invalid && f['provincia']?.touched">Campo
+    requerido</p>
+
+  <label>Fecha de Inicio del Contrato</label>
+  <input formControlName="fecha_inicio_contrato" type="date" />
+  <p
+    *ngIf="f['fecha_inicio_contrato']?.invalid && f['fecha_inicio_contrato']?.touched">Campo
+    requerido</p>
+
+  <label>Fecha de Expiración del Contrato</label>
+  <input formControlName="fecha_expiracion_contrato" type="date" />
+  <p *ngIf="clientForm.hasError('fechaInvalida')">La fecha de expiración debe
+    ser igual o posterior a la fecha de inicio.</p>
+
+  <label>Número de Reconocimientos Contratados</label>
+  <input formControlName="num_reconocimientos_contratados" type="number" />
+  <p
+    *ngIf="f['num_reconocimientos_contratados']?.invalid && f['num_reconocimientos_contratados']?.touched">
+    Debe ser un número mayor o igual a 0
+  </p>
+
+  <label>Activo</label>
+  <input formControlName="activo" type="checkbox" />
+
+  <button type="submit" [disabled]="clientForm.invalid">Actualizar</button>
+</form>

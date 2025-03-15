@@ -1,0 +1,125 @@
+<div class="dashboard">
+    <h2>Dashboard</h2>
+    <p>Bienvenido al panel de control. Aquí puedes gestionar las citas, clientes, reservas y más, dependiendo de tu rol.</p>
+  
+    <!-- Explicación de los roles y vistas -->
+    <div class="role-explanation">
+      <h3>Roles y Accesos</h3>
+  
+      <div class="role-info">
+        <h4>Administrador</h4>
+        <p>
+          El Administrador tiene acceso completo a todas las funcionalidades del sistema. 
+          Puede gestionar las citas, reservas, usuarios, clientes y más. 
+          Además, tiene la capacidad de ver estadísticas y realizar configuraciones avanzadas del sistema.
+        </p>
+        <ul>
+          <li><strong>Vistas:</strong> Panel de Control, Gestión de Citas, Gestión de Reservas, Gestión de Usuarios, Gestión de Clientes, Gestión de Reconocimientos Médicos.</li>
+        </ul>
+      </div>
+  
+      <div class="role-info">
+        <h4>Médico</h4>
+        <p>
+          El Médico tiene acceso a las citas asignadas y a los reconocimientos médicos realizados a los clientes.
+          Puede visualizar y gestionar sus citas programadas, así como realizar los reconocimientos médicos correspondientes.
+        </p>
+        <ul>
+          <li><strong>Vistas:</strong> Citas Asignadas, Detalles de las Citas, Historial de Reconocimientos Médicos.</li>
+        </ul>
+      </div>
+  
+      <div class="role-info">
+        <h4>Reserva</h4>
+        <p>
+          El rol de Reserva se encarga de gestionar las solicitudes de citas, coordinar horarios y médicos para cada cliente.
+          Pueden ver todas las reservas solicitadas y asignarles un horario y médico disponible.
+        </p>
+        <ul>
+          <li><strong>Vistas:</strong> Solicitudes de Reserva, Listado de Reservas.</li>
+        </ul>
+      </div>
+  
+      <div class="role-info">
+        <h4>Cliente</h4>
+        <p>
+          Los Clientes no tienen acceso a ninguna vista administrativa ni médica. 
+          Solo pueden interactuar a través de los encargados de reservas o médicos para gestionar sus citas.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CSS -->
+  <style>
+    .dashboard {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .dashboard h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .dashboard p {
+      font-size: 16px;
+      color: #555;
+    }
+  
+    .role-explanation {
+      margin-top: 30px;
+    }
+  
+    .role-explanation h3 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  
+    .role-info {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .role-info h4 {
+      font-size: 20px;
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+  
+    .role-info p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+  
+    .role-info ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      font-size: 15px;
+      color: #666;
+    }
+  
+    .role-info ul li {
+      margin-bottom: 5px;
+    }
+  
+    .role-info ul li strong {
+      color: #00796b;
+    }
+  
+    .role-info:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+  

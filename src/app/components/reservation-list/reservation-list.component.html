@@ -1,0 +1,68 @@
+<div class="reservation-list">
+  <h2>Listado de Reservas</h2>
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar reserva">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    
+
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
+      <td mat-cell *matCellDef="let reservation">{{ reservation.user?.razon_social || 'Sin asignar' }}</td>
+    </ng-container>
+    
+
+   
+    <ng-container matColumnDef="fecha_solicitada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Solicitada</th>
+      <td mat-cell *matCellDef="let reservation">{{ reservation.fecha_solicitada | date:'dd/MM/yyyy' }}</td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="empleados_solicitados">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Empleados Solicitados</th>
+      <td mat-cell *matCellDef="let reservation">{{ reservation.empleados_solicitados }}</td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="empleados_asignados">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Empleados Asignados</th>
+      <td mat-cell *matCellDef="let reservation">
+        {{ reservation.estado === 'realizada' ? reservation.empleados_asignados : 'Pendiente' }}
+      </td>
+      
+    </ng-container>
+
+    
+    <ng-container matColumnDef="hora_inicio_confirmada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Hora Inicio Confirmada</th>
+      <td mat-cell *matCellDef="let reservation">{{ reservation.hora_inicio_confirmada }}</td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="estado_contrato">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+      <td mat-cell *matCellDef="let reservation">{{ reservation.estado }}</td>
+    </ng-container>
+
+
+<ng-container matColumnDef="acciones">
+  <th mat-header-cell *matHeaderCellDef>Acciones</th>
+  <td mat-cell *matCellDef="let reservation">
+    <button *ngIf="reservation.estado === 'pendiente'" 
+            mat-icon-button color="primary" 
+            [routerLink]="['/reservas/editar', reservation.id]">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </td>
+</ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+</div>

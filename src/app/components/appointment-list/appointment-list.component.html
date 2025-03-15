@@ -1,0 +1,57 @@
+<div class="appointment-list">
+  <h2>Listado de Citas</h2>
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar cita por cliente">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    
+    <!-- Cliente -->
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
+      <td mat-cell *matCellDef="let appointment">
+        {{ appointment.user?.razon_social || 'Sin empresa' }}
+      </td>
+    </ng-container>
+    
+    <!-- Fecha y Hora -->
+    <ng-container matColumnDef="fecha_hora">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha y Hora</th>
+      <td mat-cell *matCellDef="let appointment">{{ appointment.fecha_hora | date:'dd/MM/yyyy HH:mm' }}</td>
+    </ng-container>
+
+    <!-- Número de Reconocimientos Realizados -->
+    <ng-container matColumnDef="num_reconocimientos_realizados">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Número Realizados</th>
+      <td mat-cell *matCellDef="let appointment">{{ appointment.num_reconocimientos_realizados }}</td>
+    </ng-container>
+
+    <!-- Exceso de Reconocimientos -->
+    <ng-container matColumnDef="exceso_reconocimientos">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Exceso de Reconocimientos</th>
+      <td mat-cell *matCellDef="let appointment">{{ appointment.exceso_reconocimientos }}</td>
+    </ng-container>
+
+    <!-- Estado -->
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+      <td mat-cell *matCellDef="let appointment">{{ appointment.estado }}</td>
+    </ng-container>
+
+    <!-- Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let appointment">
+        <button mat-icon-button color="primary" [routerLink]="['/citas/editar', appointment.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+</div>

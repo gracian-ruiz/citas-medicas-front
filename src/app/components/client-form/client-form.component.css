@@ -1,0 +1,103 @@
+/* Contenedor del formulario */
+.client-form {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilo para cada campo del formulario */
+div {
+  margin-bottom: 20px;
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Estilo de los campos de entrada */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="number"], select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilo para los mensajes de error */
+small {
+  color: #d9534f;
+  font-size: 0.875rem;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Botón de envío */
+button {
+  background-color: #2196F3;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #1976D2;
+}
+
+button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+/* Mensaje de éxito */
+.success-message {
+  color: #28a745;
+  background-color: #d4edda;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Estilo para select */
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  background-color: #fff;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .client-form {
+    padding: 15px;
+  }
+
+  button {
+    padding: 10px 20px;
+  }
+}

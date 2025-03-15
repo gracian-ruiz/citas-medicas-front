@@ -1,0 +1,59 @@
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Cliente</label>
+
+    <!-- Input de búsqueda corregido -->
+    <input type="text" formControlName="filtroCliente" placeholder="Buscar cliente...">
+
+    <select formControlName="user_id">
+      <option value="" disabled>Seleccione un cliente</option>
+      <option *ngFor="let cliente of clientesFiltrados()" [value]="cliente.id">
+        {{ cliente.razon_social || 'Sin nombre' }}
+      </option>          
+    </select>
+
+    <div *ngIf="submitted && f['user_id']?.errors">
+      <small *ngIf="f['user_id']?.errors?.['required']">El cliente es obligatorio.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Fecha de Reserva</label>
+    <input type="date" formControlName="fecha_solicitada">
+    <div *ngIf="submitted && f['fecha']?.errors">
+      <small *ngIf="f['fecha']?.errors?.['required']">La fecha es obligatoria.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Número de Reconocimientos</label>
+    <input type="number" formControlName="num_reconocimientos">
+    <div *ngIf="submitted && f['num_reconocimientos']?.errors">
+      <small *ngIf="f['num_reconocimientos']?.errors?.['required']">Campo obligatorio.</small>
+      <small *ngIf="f['num_reconocimientos']?.errors?.['min']">Debe ser mayor a 0.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Número de Empleados</label>
+    <input type="number" formControlName="empleados_solicitados">
+    <div *ngIf="submitted && f['empleados_asignados']?.errors">
+      <small *ngIf="f['empleados_asignados']?.errors?.['required']">Campo obligatorio.</small>
+      <small *ngIf="f['empleados_asignados']?.errors?.['min']">Debe ser mayor a 0.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Hora de Inicio</label>
+    <input type="time" formControlName="hora_inicio_confirmada">
+    <div *ngIf="submitted && f['hora_inicio']?.errors">
+      <small *ngIf="f['hora_inicio']?.errors?.['required']">La hora es obligatoria.</small>
+    </div>
+  </div>
+
+  <button type="submit">Guardar Reserva</button>
+    <!-- Mensaje de éxito (verde) -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+</form>

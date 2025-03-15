@@ -1,0 +1,14 @@
+<header>
+  <nav>
+    <ul>
+      <li *ngIf="!isLoggedIn"><a routerLink="login">Iniciar Sesión</a></li>
+      <li *ngIf="isLoggedIn"><a (click)="logout()">Cerrar Sesión</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="dashboard">Panel de Control</a></li>
+      <li><a routerLink="clientes">Lista de Clientes</a></li>
+      <li><a routerLink="clientes/nuevo">Nuevo Cliente</a></li>
+      <li><a routerLink="reservas">Mis Reservas</a></li>
+      <li><a routerLink="reservas/nueva">Nueva Reserva</a></li>
+      <li><a routerLink="citas">Citas Pendientes</a></li>
+    </ul>
+  </nav>
+</header>

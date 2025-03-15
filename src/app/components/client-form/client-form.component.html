@@ -1,0 +1,102 @@
+<div class="client-form">
+  <h2>Crear Nuevo Cliente</h2>
+
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Nombre</label>
+      <input type="text" formControlName="name">
+      <div *ngIf="submitted && f['name']?.errors">
+        <small *ngIf="f['name']?.errors?.['required']">El nombre es obligatorio.</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="email" formControlName="email">
+      <div *ngIf="submitted && f['email']?.errors">
+        <small *ngIf="f['email']?.errors?.['required']">El email es obligatorio.</small>
+        <small *ngIf="f['email']?.errors?.['email']">Formato de email inválido.</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Contraseña</label>
+      <input type="password" formControlName="password">
+      <div *ngIf="submitted && f['password']?.errors">
+        <small *ngIf="f['password']?.errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="f['password']?.errors?.['minlength']">Debe tener al menos 6 caracteres.</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Rol</label>
+      <select formControlName="rol">
+        <option value="cliente">Cliente</option>
+        <option value="admin">Administrador</option>
+        <option value="medico">Medeco</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Razón Social</label>
+      <input type="text" formControlName="razon_social">
+    </div>
+
+    <div>
+      <label>CIF</label>
+      <input type="text" formControlName="CIF">
+      <div *ngIf="submitted && f['CIF']?.errors">
+        <small *ngIf="f['CIF']?.errors?.['required']">El CIF es obligatorio.</small>
+        <small *ngIf="f['CIF']?.errors?.['pattern']">Formato inválido.</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Dirección</label>
+      <input type="text" formControlName="direccion">
+    </div>
+
+    <div>
+      <label>Municipio</label>
+      <input type="text" formControlName="municipio">
+    </div>
+
+    <div>
+      <label>Provincia</label>
+      <input type="text" formControlName="provincia">
+    </div>
+
+    <div>
+      <label>Fecha de Inicio del Contrato</label>
+      <input type="date" formControlName="fecha_inicio_contrato">
+    </div>
+
+    <div>
+      <label>Fecha de Expiración del Contrato</label>
+      <input type="date" formControlName="fecha_expiracion_contrato">
+    </div>
+
+    <div>
+      <label>Número de Reconocimientos Médicos</label>
+      <input type="number" formControlName="numero_reconocimientos_incluidos">
+      <div *ngIf="submitted && f['numero_reconocimientos_incluidos']?.errors">
+        <small *ngIf="f['numero_reconocimientos_incluidos']?.errors?.['required']">Este campo es obligatorio.</small>
+        <small *ngIf="f['numero_reconocimientos_incluidos']?.errors?.['min']">Debe ser mayor a 0.</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Estado del Contrato</label>
+      <select formControlName="estado_contrato">
+        <option value="activo">Activo</option>
+        <option value="inactivo">Inactivo</option>
+      </select>
+    </div>
+
+    <button type="submit">Guardar Cliente</button>
+  </form>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+</div>
